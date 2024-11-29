@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Card, TextField, Select, Pagination, Icon } from "@shopify/polaris";
 import { Link } from "react-router-dom";
-import { StarIcon } from '@shopify/polaris-icons'; // Import the correct icon
+import { StarIcon } from '@shopify/polaris-icons'; 
 import "./ContestTable.css";
 
 const ContestTable = ({
@@ -17,10 +17,10 @@ const ContestTable = ({
     phaseFilter,
     setPhaseFilter,
     favorites,
-    toggleFavorite, // New prop for toggling favorites
+    toggleFavorite, 
 }) => {
     useEffect(() => {
-        setCurrentPage(1); // Reset page when filters or search are updated
+        setCurrentPage(1); 
     }, [searchTerm, typeFilter, phaseFilter, setCurrentPage]);
 
     const handlePageChange = (direction) => {
@@ -84,8 +84,8 @@ const ContestTable = ({
                                     {/* Display filled or outlined star based on favorites */}
                                     <Icon
                                         source={StarIcon}
-                                        className={`star-icon ${favorites.includes(contest.id) ? 'star-filled' : ''}`}
-                                        //color={favorites.includes(contest.id) ? 'yellow' : 'base'} // Change color to simulate filled and outlined stars
+                                        color={favorites.includes(contest.id) ? 'yellow' : 'base'}
+                                        className="star-icon"
                                     />
                                 </button>
                             </td>

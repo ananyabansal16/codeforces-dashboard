@@ -1,10 +1,10 @@
 /* App.css */
 
 h1 {
-  font-size: 2rem; /* Increase font size */
-  font-weight: bold; /* Make it bold */
-  text-align: center; /* Center the heading */
-  margin-bottom: 20px; /* Add spacing below */
+  font-size: 2rem; 
+  font-weight: bold; 
+  text-align: center; 
+  margin-bottom: 20px; 
 }
 
 .heading {
@@ -14,7 +14,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Search bar and filter styles */
 input[type="text"], select {
   width: 200px;
   padding: 10px;
@@ -37,7 +36,6 @@ button:disabled {
   background-color: #ccc;
 }
 
-/* Contest list styles */
 div.contests {
   display: flex;
   flex-direction: column;
@@ -55,13 +53,11 @@ div.contests > div {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Loading state */
 div.loading {
   text-align: center;
   font-size: 1.5em;
   margin-top: 20px;
 }
-
 
 body {
   margin: 0;
@@ -75,9 +71,3 @@ body {
   padding: 20px;
 }
 
-/* h1 {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-} */

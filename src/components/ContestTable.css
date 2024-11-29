@@ -6,11 +6,11 @@ body {
 }
 
 .heading {
-    font-size: 2.5rem; /* Default size for larger screens */
+    font-size: 2.5rem; 
     font-weight: bold;
     text-align: center;
     margin: 1rem 0;
-    color: #123456; /* Replace with your desired color */
+    color: #123456; 
 }
 
 /* Responsive styles for medium screens */
@@ -28,23 +28,23 @@ body {
 }
 
 h1 {
-    font-size: 2rem; /* Increase font size */
-    font-weight: bold; /* Make it bold */
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Add spacing below */
+    font-size: 2rem; 
+    font-weight: bold; 
+    text-align: center;
+    margin-bottom: 20px; 
 }
 
 .filter-bar {
     display: flex;
-    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
     justify-content: space-between;
 }
 
 .filter-bar .Polaris-TextField{
-    width: 100%; /* Default to full width */
-    max-width: 41rem; /* Maintain original width for larger screens */
+    width: 100%; 
+    max-width: 41rem; 
     /* height: 40px; */
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -52,8 +52,8 @@ h1 {
 }
 
 .filter-bar .Polaris-Select {
-    width: 100%; /* Default to full width */
-    max-width: 14rem; /* Maintain original width for larger screens */
+    width: 100%; 
+    max-width: 14rem; 
     /* height: 40px; */
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -64,47 +64,47 @@ h1 {
 @media (min-width: 768px) {
     /* For tablets and larger devices */
     .filter-bar .Polaris-TextField {
-        width: 60%; /* Take up 60% of available space */
+        width: 60%; 
     }
     .filter-bar .Polaris-Select {
-        width: 35%; /* Take up 35% of available space */
+        width: 35%; 
     }
 }
 
 @media (min-width: 1024px) {
     /* For desktops and larger screens */
     .filter-bar .Polaris-TextField {
-        width: 41rem; /* Original fixed width */
+        width: 41rem; 
     }
     .filter-bar .Polaris-Select {
-        width: 14rem; /* Original fixed width */
+        width: 14rem; 
     }
 }
 
 @media (max-width: 480px) {
     /* For smaller devices */
     .filter-bar {
-        flex-direction: column; /* Stack items vertically */
-        align-items: stretch; /* Stretch items to fill the container */
+        flex-direction: column; 
+        align-items: stretch; 
     }
 
     .filter-bar .Polaris-TextField,
     .filter-bar .Polaris-Select {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%; 
     }
 }
 
 .filter-bar input, 
 .filter-bar select {
     height: 100%;
-    padding: 8px 12px; /* Adjust padding for visual alignment */
+    padding: 8px 12px; 
     font-size: 1rem;
     /* border: none;
     outline: none; */
 }
 
 .filter-bar .Polaris-Select select {
-    appearance: none; /* Hides default dropdown arrow */
+    appearance: none; 
     background-color: #fff;
     cursor: pointer;
 }
@@ -145,28 +145,23 @@ h1 {
     font-size: 14px;
 }
 
-
-/* Make sure that the stars are properly displayed */
 .favorite-button {
     background: #fff;
-    /* border: none; */
     cursor: pointer;
     display: inline-flex;
-    align-items: right;
+    align-items: center;
     padding: 0;
     margin: 0;
     color: rgb(19, 63, 125);
 }
 
-/* Adjust the size of the star icons */
 .favorite-button .Polaris-Icon {
-    font-size: 20px; /* You can adjust this size as needed */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 20px; 
+    transition: transform 0.3s ease; 
 }
 
-/* Optional: Add hover effect to the button */
 .favorite-button:hover .Polaris-Icon {
-    transform: scale(1.2); /* Slightly increase size on hover */
+    transform: scale(1.2); 
 }
 
 /* Add some spacing between the favorite column and other content */
@@ -175,9 +170,9 @@ h1 {
 } */
 
 .star-icon {
-    color: #ddd; /* Default color for unfilled star (light gray) */
+    color: #ddd; 
 }
 
 .star-filled {
-    color: #ffb400; /* Yellow color for filled star */
+    color: #ffb400; 
 }
