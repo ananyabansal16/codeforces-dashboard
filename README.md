@@ -6,6 +6,8 @@ The **Contest Table App** is a React-based web application that allows users to 
 
 This app is built using **React**, **Polaris** (Shopify’s design system), and **React Router** for routing. The UI is responsive and adapts to various screen sizes, making it mobile-friendly.
 
+You can view the deployed version of the app here: [Contest Table App - Deployed on Vercel](https://codeforces-dashboard-alpha.vercel.app/).
+
 ## Features
 
 - **Search Functionality**: Search contests by name.
@@ -92,3 +94,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 #### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## License
+
+The project is licensed under the MIT License - see the LICENSE file for details.
+
+© Ananya Bansal
+
+The ownership and intellectual property rights of the code remain with Ananya Bansal. The project may contain third-party libraries or code with their respective licenses. Please review the licenses of those projects before using or distributing them.
+
+This project is provided "as is" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the project or the use or other dealings in the project.
