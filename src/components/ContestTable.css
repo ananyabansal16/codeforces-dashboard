@@ -146,3 +146,38 @@ h1 {
 }
 
 
+/* Make sure that the stars are properly displayed */
+.favorite-button {
+    background: #fff;
+    /* border: none; */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: right;
+    padding: 0;
+    margin: 0;
+    color: rgb(19, 63, 125);
+}
+
+/* Adjust the size of the star icons */
+.favorite-button .Polaris-Icon {
+    font-size: 20px; /* You can adjust this size as needed */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Optional: Add hover effect to the button */
+.favorite-button:hover .Polaris-Icon {
+    transform: scale(1.2); /* Slightly increase size on hover */
+}
+
+/* Add some spacing between the favorite column and other content */
+/* .contest-table td {
+    padding: 10px;
+} */
+
+.star-icon {
+    color: #ddd; /* Default color for unfilled star (light gray) */
+}
+
+.star-filled {
+    color: #ffb400; /* Yellow color for filled star */
+}

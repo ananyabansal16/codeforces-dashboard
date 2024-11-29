@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { Card, TextField, Select, Pagination } from "@shopify/polaris";
+import { Card, TextField, Select, Pagination, Icon } from "@shopify/polaris";
+import { Link } from "react-router-dom";
+import { StarIcon } from '@shopify/polaris-icons'; // Import the correct icon
 import "./ContestTable.css";
 
 const ContestTable = ({
@@ -14,6 +16,8 @@ const ContestTable = ({
     perPage,
     phaseFilter,
     setPhaseFilter,
+    favorites,
+    toggleFavorite, // New prop for toggling favorites
 }) => {
     useEffect(() => {
         setCurrentPage(1); // Reset page when filters or search are updated
@@ -27,9 +31,6 @@ const ContestTable = ({
 
     return (
         <Card sectioned>
-            {/* Main Heading */}
-            {/* <h1 className="heading">Contest Listing</h1> */}
-            
             {/* Filter Bar */}
             <div className="filter-bar">
                 <TextField
@@ -65,6 +66,7 @@ const ContestTable = ({
             <table className="contest-table">
                 <thead>
                     <tr>
+                        <th>Favorite</th> {/* Add a Favorite column */}
                         <th>Contest Name</th>
                         <th>Type</th>
                         <th>Phase</th>
@@ -74,7 +76,22 @@ const ContestTable = ({
                 <tbody>
                     {contests.map((contest) => (
                         <tr key={contest.id}>
-                            <td>{contest.name}</td>
+                            <td>
+                                <button
+                                    className="favorite-button"
+                                    onClick={() => toggleFavorite(contest.id)}
+                                >
+                                    {/* Display filled or outlined star based on favorites */}
+                                    <Icon
+                                        source={StarIcon}
+                                        className={`star-icon ${favorites.includes(contest.id) ? 'star-filled' : ''}`}
+                                        //color={favorites.includes(contest.id) ? 'yellow' : 'base'} // Change color to simulate filled and outlined stars
+                                    />
+                                </button>
+                            </td>
+                            <td>
+                                <Link to={`/contest/${contest.id}`}>{contest.name}</Link>
+                            </td>
                             <td>{contest.type}</td>
                             <td>{contest.phase}</td>
                             <td>{(contest.durationSeconds / 3600).toFixed(2)}</td>
@@ -96,7 +113,6 @@ const ContestTable = ({
                 </p>
             </div>
         </Card>
-
     );
 };
 
