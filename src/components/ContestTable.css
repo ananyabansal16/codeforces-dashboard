@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f0f4f8;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #002c83;
+}
+
+h1 {
+    font-size: 2rem; /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add spacing below */
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.filter-bar .Polaris-TextField{
+    width: 100%; /* Default to full width */
+    max-width: 41rem; /* Maintain original width for larger screens */
+    height: 40px; /* Consistent height */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.filter-bar .Polaris-Select {
+    width: 100%; /* Default to full width */
+    max-width: 14rem; /* Maintain original width for larger screens */
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+@media (min-width: 768px) {
+    /* For tablets and larger devices */
+    .filter-bar .Polaris-TextField {
+        width: 60%; /* Take up 60% of available space */
+    }
+    .filter-bar .Polaris-Select {
+        width: 35%; /* Take up 35% of available space */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* For desktops and larger screens */
+    .filter-bar .Polaris-TextField {
+        width: 41rem; /* Original fixed width */
+    }
+    .filter-bar .Polaris-Select {
+        width: 14rem; /* Original fixed width */
+    }
+}
+
+@media (max-width: 480px) {
+    /* For smaller devices */
+    .filter-bar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: stretch; /* Stretch items to fill the container */
+    }
+
+    .filter-bar .Polaris-TextField,
+    .filter-bar .Polaris-Select {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
+.filter-bar input, 
+.filter-bar select {
+    height: 100%;
+    padding: 8px 12px; /* Adjust padding for visual alignment */
+    font-size: 1rem;
+    /* border: none;
+    outline: none; */
+}
+
+.filter-bar .Polaris-Select select {
+    appearance: none; /* Hides default dropdown arrow */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.contest-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contest-table th {
+    background-color: #16416e;
+    color: #ffffff;
+    text-align: left;
+    padding: 10px;
+}
+
+.contest-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.contest-table tr:hover {
+    background-color: #f7faff;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination .page-info {
+    font-size: 14px;
+}
+
+

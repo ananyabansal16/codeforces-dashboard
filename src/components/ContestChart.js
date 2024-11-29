@@ -1,21 +1,24 @@
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React from "react";
+import { Card } from "@shopify/polaris";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const ContestChart = ({ contests }) => {
-    const data = contests.map((contest) => ({
+    const chartData = contests.map((contest) => ({
         name: contest.name,
-        duration: contest.durationSeconds / 3600,
+        duration: contest.durationSeconds,
     }));
 
     return (
+        <Card title="Contest Duration Visualization">
         <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-            <XAxis dataKey="name" />
-            <YAxis label={{ value: 'Duration (hours)', angle: -90, position: 'insideLeft' }} />
+            <BarChart data={chartData}>
+            <XAxis dataKey="name" hide />
+            <YAxis />
             <Tooltip />
-            <Bar dataKey="duration" fill="#007ace" />
-        </BarChart>
+            <Bar dataKey="duration" fill="#4caf50" />
+            </BarChart>
         </ResponsiveContainer>
+        </Card>
     );
 };
 

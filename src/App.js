@@ -1,68 +1,75 @@
-// import logo from './logo.svg';
-import './App.css';
-import React, { useState, useEffect } from 'react';
-// import { Page, Spinner } from '@shopify/polaris';
-// import ContestTable from './components/ContestTable';
-// import { fetchContests } from './services/codeforcesService';
-// import FilterBar from './components/FilterBar';
-// import ContestChart from './components/ContestChart';
-import "./styles.css";  // Import the CSS styles
-
-const ContestTable = ({ contests }) => {
-  return (
-    <div className="table-container">
-      <h2 className="table-header">Upcoming Contests</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Contest Name</th>
-            <th>Start Time</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contests.map((contest, index) => (
-            <tr key={index}>
-              <td>{contest.name}</td>
-              <td>{contest.startTime}</td>
-              <td>{contest.duration}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+import React, { useState, useEffect } from "react";
+import ContestTable from "./components/ContestTable";
+import { AppProvider } from "@shopify/polaris";
+import "@shopify/polaris/build/esm/styles.css";
+import "./App.css";
 
 const App = () => {
   const [contests, setContests] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [filteredContests, setFilteredContests] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [phaseFilter, setPhaseFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage] = useState(10);
 
   useEffect(() => {
-    const fetchContests = async () => {
-      try {
-        const response = await fetch("https://codeforces.com/api/contest.list");
-        const data = await response.json();
-        setContests(data.result);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching contests:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchContests();
+    // Fetch contests from API
+    fetch("https://codeforces.com/api/contest.list")
+      .then((response) => response.json())
+      .then((data) => {
+        const validContests = data.result.filter((contest) => contest.phase);
+        setContests(validContests);
+        setFilteredContests(validContests);
+      });
   }, []);
 
+  // Apply filtering dynamically
+  useEffect(() => {
+    let filtered = contests;
+
+    if (searchTerm) {
+      filtered = filtered.filter((contest) =>
+        contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (typeFilter) {
+      filtered = filtered.filter((contest) => contest.type === typeFilter);
+    }
+
+    if (phaseFilter) {
+      filtered = filtered.filter((contest) => contest.phase === phaseFilter);
+    }
+
+    setFilteredContests(filtered);
+  }, [searchTerm, typeFilter, phaseFilter, contests]);
+
+  // Pagination logic
+  const paginatedContests = filteredContests.slice(
+    (currentPage - 1) * perPage,
+    currentPage * perPage
+  );
+
   return (
-    <div className="page-container">
-      <h1 className="page-header">Codeforces Dashboard</h1>
-      {loading ? (
-        <div className="spinner" />
-      ) : (
-        <ContestTable contests={contests} />
-      )}
-    </div>
+    <AppProvider>
+      <div className="app-container">
+      <h1 className="heading">Codeforces Contest Listing</h1>
+        <ContestTable
+          contests={paginatedContests}
+          totalContests={filteredContests.length}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          typeFilter={typeFilter}
+          setTypeFilter={setTypeFilter}
+          phaseFilter={phaseFilter}
+          setPhaseFilter={setPhaseFilter}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          perPage={perPage}
+        />
+      </div>
+    </AppProvider>
   );
 };
 
